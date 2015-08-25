@@ -1,3 +1,70 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700|Open+Sans:400,600,400italic,600italic,700,700italic);body{margin:0;padding:0;font-family:'Open Sans', sans-serif;background:#444}table{width:960px;margin:2em auto 0;background:#fff;box-shadow:1px 1px 10px rgba(0,0,0,0.5);border:1px solid #090a0d}table tr:first-child{background:#30394C;color:#eee;font-size:1.2em;font-weight:bold}table tr:nth-child(even){background:rgba(0,0,0,0.05)}table td{padding:10px;border:0;text-align:center}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700|Open+Sans:400,600,400italic,600italic,700,700italic);
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: #444; }
 
-/*# sourceMappingURL=style.css.map */
+table {
+  width: 960px;
+  margin: 2em auto 0;
+  background: #fff;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid #090a0d; }
+  table tr:first-child {
+    background: #30394C;
+    color: #eee;
+    font-size: 1.2em;
+    font-weight: bold;
+    position: relative; }
+    table tr:first-child td:first-child {
+      position: relative; }
+  table tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.05); }
+  table td {
+    padding: 10px;
+    border: 0;
+    text-align: center; }
+
+.row-ribbon {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: -1; }
+
+.drop-list {
+  padding: 10px 0;
+  border: 0;
+  text-align: center;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 1.4em;
+  line-height: 1.4em;
+  position: absolute; }
+  .drop-list div {
+    background: #30394C; }
+
+.fullview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 998;
+  height: 100vh;
+  width: 100vw; }
+  .fullview button {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    margin: 0;
+    padding: 1em;
+    background: #333;
+    color: #eee;
+    line-height: 1;
+    border: 0; }

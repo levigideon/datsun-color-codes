@@ -22,6 +22,11 @@ table {
 		color:#eee;
 		font-size: 1.2em;
 		font-weight: bold;
+		position: relative;
+
+		td:first-child {
+			position: relative;
+		}
 	}
 
 	tr:nth-child(even) {
@@ -33,5 +38,55 @@ table {
 		padding: 10px;
 		border: 0;
 		text-align: center;
+	}
+}
+
+.row-ribbon {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    height: 20px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+
+.drop-list {
+		padding: 10px 0;
+		border: 0;
+		text-align: center;
+		width: 100%;
+		top: 0;
+		left: 0;
+		height: 1.4em;
+		line-height: 1.4em;
+		position: absolute;
+		div {
+			background:  #30394C;
+		}
+
+}
+
+.fullview {
+	position:fixed;
+	top:0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: 998;
+	height: 100vh;
+	width: 100vw;
+	button {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 999;
+		margin: 0;
+		padding: 1em;
+		background: #333;
+		color: #eee;
+		line-height: 1;
+		border: 0;
 	}
 }

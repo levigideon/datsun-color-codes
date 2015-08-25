@@ -1,15 +1,30 @@
-angular.module('color-find', [])
-
-.directive('colorTable', function() {
+angular.module('color-find', []).directive('colorTable', function() {
     return {
-        template: '<table>' +
-            '<tr  ng-repeat="color in colorData">' +
-            '<td style="{{\'border-left:14px solid #\'+color.hex}}">{{color.year}}</td>' +
-            '<td>{{color["name"]}}</td>' +
-            '<td>{{color["code"]||"N/A"}}</td>' +
-            '<td>{{color.hex}}</td>' +
-            '</tr>' + '</table>',
+        templateUrl: 'color.html',
         controller: function($scope) {
+            Object.prototype.getUnique = function(property) {
+                var o = {}, i, l = this.length;
+                for (i = 0; i < l; i += 1) {
+                    if (this[i].hasOwnProperty(property)) {
+                        o[this[i][property]] = this[i][property];
+                    }
+                }
+                return Object.keys(o);
+            }
+            $scope.availableYears = function() {
+                return $scope.colorData.getUnique('year');
+            }
+            $scope.inverse = function(hex) {
+                var inverse = null;
+                if (hex.length == 7 && hex.indexOf('#') == 0) {
+                    inverse = '#';
+                    for (var i = 1; i < 7; i += 2) {
+                        var value = "0" + (255 - parseInt(hex.substring(i, i + 2), 16)).toString(16);
+                        inverse += value.slice(-2);
+                    }
+                }
+                return inverse
+            }
             $scope.colorData = [{
                 "year": "Year",
                 "car": "Model",
@@ -1220,3 +1235,30 @@ angular.module('color-find', [])
         }
     }
 })
+
+.directive('colorView',  function(){
+    // Runs during compile
+    return {
+        scope: {
+            'color':'=colorView'
+        },
+        controller: function($scope, $element) {
+                console.log($scope.color, arguments[0]);
+
+            if (!$scope.color) {return};
+
+            $scope.$watch(function(){
+                return $scope.color;
+            }, function(old, newval) {
+                
+                console.log($scope.color, newval);
+                $scope.color = '#'+$scope.color.replace('#', '');
+
+                if (/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test($scope.color)) {
+                        $element.css('background-color', $scope.color);
+                }
+            })
+        },
+        template:''
+    };
+});
