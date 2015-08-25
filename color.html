@@ -1,15 +1,15 @@
 <div class="fullview" ng-show="$root.viewColor" style="background-color:#{{$root.viewColor.replace('#','')}}"><button ng-click="$root.viewColor = false;">CLOSE</button></div>
 <table>
-    <tr ng-repeat="color in colorData" ng-click="$root.viewColor = color.hex">
-
+    <tr ng-repeat="color in colorData" ng-click="($index==0)?false:$root.viewColor = color.hex">
+<!-- 
         <td ng-if="$index == 0" ng-click="">
             <div class="drop-list">
                 <div ng-click="$parent.showOpts = !$parent.showOpts; $parent.$parent.yearFilter = year" ng-show="showOpts || $index == 0" ng-class="{'drop-title':$index==0}" ng-repeat="year in availableYears()" >
                     {{year}}
                 </div>
             </div>
-        </td>
-        <td ng-if="$index > 0">
+        </td> -->
+        <td>
             {{color.year}}
         </td>
         <td style="{'border-left: 25px solid #'+color.hex}}">
